@@ -6,7 +6,6 @@ Plagiat checkout. If second string includes symbol from first string we will ret
 const firstString = prompt("Введите первую строку", '')
 const secondString = prompt("Введите вторую строку, чтобы проверить ее на плагиат", '')
 //PTNNPTN
-//почему то не считает I(предпоследний)
 function plagiatCheckout(first,second) {
   const firstSplitString = first.toLowerCase().split('').reverse()
   const secondSplitString = second.toLowerCase().split('').reverse()
@@ -16,7 +15,7 @@ function plagiatCheckout(first,second) {
     const lastChild = secondSplitString.pop()
       if(firstSplitString[firstSplitString.length - i ] === lastChild && !resultLetters.includes(lastChild)){
         result.push('P')
-      }else if(firstSplitString.includes(lastChild) && !resultLetters.includes(lastChild)){//i не видит
+      }else if(firstSplitString.includes(lastChild) && !resultLetters.includes(lastChild)){
         result.push('T')
       }else{
         result.push('N')
