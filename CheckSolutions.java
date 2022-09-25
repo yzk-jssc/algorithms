@@ -3,46 +3,37 @@ import java.util.*;
 public class CheckSolutions {
     public static void main(String[] args){
         Scanner scanner = new Scanner(System.in);
-
-
        do{
-           System.out.println("Введите первую строку");
+           System.out.println("Введите первое время и второе время");
            String firstString = scanner.nextLine();
-           System.out.println("Введите вторую строку");
            String secondString = scanner.nextLine();
 
-           plagiatCheckout(firstString, secondString);
-           System.out.println("Проверим еще строки? Ответьте Да или Нет");
-
-
+           howLongIsFlying(firstString, secondString);
+           System.out.println("Проверим еще времена? Ответьте Да или Нет");
        }while (scanner.nextLine().equals("Да"));
 
     }
 
-    static void plagiatCheckout(String fistString, String secondString){
-        List<String> fistStringSplit = Arrays.asList((fistString.toLowerCase().split("")));
-        List<String> secondStringSplit = new LinkedList<>(Arrays.asList((secondString.toLowerCase().split(""))));
-
-        Collections.reverse(fistStringSplit);
-        Collections.reverse(secondStringSplit);
-
-        List<String> result = new ArrayList<>();
-        List<String> resultLetters = new ArrayList<>();
-
-        for(int i = 1; i <= fistStringSplit.size(); i++){
-            String lastChild = secondStringSplit.remove(secondStringSplit.size() - 1);
-
-            if(fistStringSplit.get(fistString.length() - i).equals(lastChild) && !resultLetters.contains(lastChild)){
-                result.add("P");
-            } else if (fistStringSplit.contains(lastChild) && !resultLetters.contains(lastChild)) {
-                result.add("T");
-            }else{
-                result.add("N");
-            }
-        resultLetters.add(lastChild);
-        }
-        System.out.println("first string:" + fistString);
-        System.out.println("second string:" + secondString);
-        System.out.println("result:" + String.join("", result));
+    static void howLongIsFlying(String firstTime, String secondTime){
+      int firstTimeInMinutes = Integer.parseInt(firstTime.split(":")[0]) * 60 + Integer.parseInt(firstTime.split(":")[1]);
+      int secondTimeInMinutes = Integer.parseInt(secondTime.split(":")[0]) * 60 + Integer.parseInt(secondTime.split(":")[1]);
+      int hours,
+              minutes;
+      if(firstTimeInMinutes < secondTimeInMinutes){
+          hours = Math.round((secondTimeInMinutes - firstTimeInMinutes) / 60);
+          minutes = (secondTimeInMinutes - firstTimeInMinutes) - 60;
+      }else if ( firstTimeInMinutes > secondTimeInMinutes){
+          hours = Math.round((firstTimeInMinutes - secondTimeInMinutes) / 60);
+          minutes = (firstTimeInMinutes - secondTimeInMinutes) - 60;
+      }else {
+          System.out.println("00:00");
+          return;
+      }
+      String minutesHelper = String.valueOf(minutes);
+        System.out.println(hours
+                + ":"
+                + (minutesHelper.length() > 1
+                    ? minutesHelper.split("")[minutesHelper.length() - 2] + minutesHelper.split("")[minutesHelper.length() - 1]
+                    : "0" + minutes));
     }
 }
