@@ -21,10 +21,16 @@ public class CheckSolutions {
               minutes;
       if(firstTimeInMinutes < secondTimeInMinutes){
           hours = Math.round((secondTimeInMinutes - firstTimeInMinutes) / 60);
-          minutes = (secondTimeInMinutes - firstTimeInMinutes) - 60;
+
+          minutes = Integer.parseInt(firstTime.split(":")[1]) <= Integer.parseInt(secondTime.split(":")[1])
+                  ? (secondTimeInMinutes - firstTimeInMinutes) - 60
+                  : Integer.parseInt(firstTime.split(":")[1]) - Integer.parseInt(secondTime.split(":")[1]);
       }else if ( firstTimeInMinutes > secondTimeInMinutes){
           hours = Math.round((firstTimeInMinutes - secondTimeInMinutes) / 60);
-          minutes = (firstTimeInMinutes - secondTimeInMinutes) - 60;
+
+          minutes = Integer.parseInt(firstTime.split(":")[1]) >= Integer.parseInt(secondTime.split(":")[1])
+                  ? (firstTimeInMinutes - secondTimeInMinutes) - 60
+                  : Integer.parseInt(secondTime.split(":")[1]) - Integer.parseInt(firstTime.split(":")[1]);
       }else {
           System.out.println("00:00");
           return;
