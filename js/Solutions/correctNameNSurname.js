@@ -9,7 +9,6 @@ function correctNameNSurname(firstCouple, secondCouple) {
   }else{
     return 'NO'
   }
-  // если первое инклудс строка или перевернутая строка и второе инклудс строка или перевернутая строка
 }
 
 console.log(correctNameNSurname('Иван Петров, Иванов Петр',
