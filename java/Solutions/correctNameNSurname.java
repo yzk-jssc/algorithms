@@ -1,16 +1,18 @@
+package java.Solutions;
+
 import java.util.*;
 
-public class CheckSolutions {
+class СorrectNameNSurname {
     public static void main(String[] args){
         Scanner scanner = new Scanner(System.in);
-       do{
-           System.out.println("Введите первую пару имен и вторую пару имен");
-           String firstString = scanner.nextLine();
-           String secondString = scanner.nextLine();
+        do{
+            System.out.println("Введите первую пару имен и вторую пару имен");
+            String firstString = scanner.nextLine();
+            String secondString = scanner.nextLine();
 
-           correctNameNSurname(firstString, secondString);
-           System.out.println("Проверим еще имена? Ответьте Да или Нет");
-       }while (scanner.nextLine().equals("Да"));
+            correctNameNSurname(firstString, secondString);
+            System.out.println("Проверим еще имена? Ответьте Да или Нет");
+        }while (scanner.nextLine().equals("Да"));
 
     }
 
@@ -19,11 +21,11 @@ public class CheckSolutions {
         List<String> secondNames = new LinkedList<>(Arrays.asList(secondCouple.split(", ")));
         String firstNameFromNames = firstNames.get(0);
         String secondNameFromNames = firstNames.get(1);
-       if((helpingHandler(secondNames, firstNameFromNames) || helpingHandler(secondNames, helpingReverseHandler(firstNameFromNames))) && (helpingHandler(secondNames, secondNameFromNames) || helpingHandler(secondNames, helpingReverseHandler(secondNameFromNames)))){
+        if((helpingHandler(secondNames, firstNameFromNames) || helpingHandler(secondNames, helpingReverseHandler(firstNameFromNames))) && (helpingHandler(secondNames, secondNameFromNames) || helpingHandler(secondNames, helpingReverseHandler(secondNameFromNames)))){
             System.out.println("YES");
-       }else {
-           System.out.println("NO");
-       }
+        }else {
+            System.out.println("NO");
+        }
     }
 
     static boolean helpingHandler(List<String> array, String string){
