@@ -5,10 +5,12 @@ function howLongIsFlying (firstTime,secondTime,thirdNumber) {
       minutes;
   if(firstTimeInMinutes < secondTimeInMinutes) {
     hours = Math.floor((secondTimeInMinutes - firstTimeInMinutes) / 60)
-    minutes = (secondTimeInMinutes - firstTimeInMinutes) - 60
+    minutes = +firstTime.split(':')[1] <= +secondTime.split(':')[1] ? (secondTimeInMinutes - firstTimeInMinutes) - 60 : firstTime.split(':')[1] - secondTime.split(':')[1]
+
   }else if(firstTimeInMinutes > secondTimeInMinutes){
     hours = Math.floor((firstTimeInMinutes - secondTimeInMinutes) / 60)
-    minutes = (firstTimeInMinutes - secondTimeInMinutes) - 60 
+    minutes = +firstTime.split(':')[1] >= +secondTime.split(':')[1] ? (firstTimeInMinutes - secondTimeInMinutes) - 60 : secondTime.split(':')[1] - firstTime.split(':')[1]
+
   }else {
     return '00:00'
   }
@@ -19,6 +21,7 @@ function howLongIsFlying (firstTime,secondTime,thirdNumber) {
 console.log(howLongIsFlying('12:00','13:05'))
 console.log(howLongIsFlying('12:00','13:00'))
 console.log(howLongIsFlying('00:00','6:25'))
-console.log(howLongIsFlying('01:20','12:50'))
-console.log(howLongIsFlying('6:25','00:22'))
-
+console.log(howLongIsFlying('01:50','12:50'))
+console.log(howLongIsFlying('6:59','00:26'))
+console.log(howLongIsFlying('6:59','00:26'))
+console.log(howLongIsFlying('15:15','3:00'))

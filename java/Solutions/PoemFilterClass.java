@@ -1,8 +1,9 @@
-import java.util.*;
+package java.Solutions;
+
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class CheckSolutions {
+public class PoemFilterClass {
     static void poemFilter(String poem) {
         Pattern pattern = Pattern.compile("Салта(не|н)|Бабарих(а|ой)|Гвидон|Черномор|[Лл]ебед(ь|и)|кон(ями|я)|[Цц]ар(ь|ица)|(ткач|[Пп]овар)иха|[Гг]он(ец|ца)");
         Matcher matcher = pattern.matcher(poem);
@@ -10,7 +11,7 @@ public class CheckSolutions {
             System.out.println(poem.substring(matcher.start(), matcher.end()));
         }
     }
-    public static void main(String[] args){
+    public static void main(String[] args) {
 //        Scanner scanner = new Scanner(System.in);
 //        System.out.println("Введите первую пару имен и вторую пару имен");
         poemFilter("Сказка о царе Салтане, о сыне его славном и могучем богатыре князе Гвидоне Салтановиче и о прекрасной царевне Лебеди\n" +
@@ -1010,16 +1011,5 @@ public class CheckSolutions {
                 "Уложили спать вполпьяна.\n" +
                 "Я там был; мед, пиво пил —\n" +
                 "И усы лишь обмочил.");
-
-       /*do{
-           System.out.println("Введите первую пару имен и вторую пару имен");
-           String firstString = scanner.nextLine();
-           String secondString = scanner.nextLine();
-
-           correctNameNSurname(firstString, secondString);
-           System.out.println("Проверим еще имена? Ответьте Да или Нет");
-       }while (scanner.nextLine().equals("Да"));*/
-
     }
-
 }
