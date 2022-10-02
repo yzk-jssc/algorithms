@@ -1,20 +1,8 @@
+package java.Solutions;
+
 import java.util.*;
 
-public class CheckSolutions {
-    /*public static void main(String[] args){
-       Scanner scanner = new Scanner(System.in);
-       System.out.println("Введите первую пару имен и вторую пару имен");
-
-       do{
-           System.out.println("Введите первую пару имен и вторую пару имен");
-           String firstString = scanner.nextLine();
-           String secondString = scanner.nextLine();
-
-           bubbleSort(firstString, secondString);
-           System.out.println("Проверим еще имена? Ответьте Да или Нет");
-       }while (scanner.nextLine().equals("Да"));
-
-    }*/
+public class SortTimer {
 
     public static void main(String[] args) {
         long currentTimeForBubble = System.currentTimeMillis();
