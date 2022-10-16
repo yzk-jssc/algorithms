@@ -1,14 +1,16 @@
+package java.Solutions;
+
 import java.util.Arrays;
 import java.util.Scanner;
 
 
-public class CheckSolutions {
+public class tasksForHome {
 
     public static void main(String[] args){
         pinappleCount(500, 85);
         totalCostTickets(15,2,720);
         bountyAmount(232300);
-         employeesBountyAmount();
+        employeesBountyAmount();
     }
 
     static void pinappleCount(int cash, int price){
@@ -45,3 +47,4 @@ public class CheckSolutions {
     }
 
 }
+
