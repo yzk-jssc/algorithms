@@ -1,7 +1,9 @@
+package java.Solutions;
+
 import java.util.Scanner;
 
 
-public class CheckSolutions {
+public class HanoiSolution {
 
     public static void main(String[] args) {
         System.out.println("Ведите количество дисков");
