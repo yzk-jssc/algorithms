@@ -1,47 +1,47 @@
-import java.util.Arrays;
-import java.util.Scanner;
+import java.util.*;
 
 
 public class CheckSolutions {
 
     public static void main(String[] args){
-        pinappleCount(500, 85);
-        totalCostTickets(15,2,720);
-        bountyAmount(232300);
-         employeesBountyAmount();
+//        positiveAndNegativeCount();
+        randomNumsEndsOnThree();
     }
 
-    static void pinappleCount(int cash, int price){
-        int result = Math.toIntExact(Math.round(Math.floor(cash / price)));
-        System.out.println("На " + cash +" рублей можно купить " + result + " ананасов по "+ 85 +" рублей");
-    }
-
-    static void totalCostTickets(int students, int adult, int fullPriceTicketCost){
-        int adultsTicketsCost = fullPriceTicketCost * adult;
-        int studentsTicketsCost = (fullPriceTicketCost / 2)  * students;
-        int result = adultsTicketsCost + studentsTicketsCost;
-        System.out.println("Общая стоимость билетов: " +  result + " рублей");
-    }
-
-    static void bountyAmount(int salary){
-        int bounty = (int) (salary / 1.5);
-        int duty = (int) (bounty * 0.13);
-        int result = bounty + duty;
-        System.out.println("Премея составит "+ result + " рублей");
-    }
-    static void employeesBountyAmount(){
+    public static void positiveAndNegativeCount() {
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Введите имена через запятую");
-        String[] employeesNames = scanner.nextLine().split(",");
-        System.out.println("Введите зарплаты через запятую соответсвенно");
-        String[] employeesSalaries = scanner.nextLine().split(",");
-        for(int i  = 0; i < employeesSalaries.length; i ++ ){
-            int salary = Integer.parseInt(employeesSalaries[i]);
-            int bounty = (int) (salary / 1.5);
-            int duty = (int) (bounty * 0.13);
-            employeesSalaries[i] = String.valueOf(bounty + duty);
-            System.out.println("Премия для " + employeesNames[i] + " составит " +employeesSalaries[i] + " рублей");
+        System.out.println("Введите числа через запятую:");
+        String[] numsArray = scanner.nextLine().split(",");
+        scanner.close();
+        int n = 0;
+        int p = 0;
+        for(int i = 0; i < numsArray.length; i++){
+            if(Integer.parseInt(numsArray[i].trim()) > 0 ) {
+                p++;
+            }else{
+                n++;
+            }
         }
+        System.out.println("Положительных чисел: " + p + "\n" + "Отрицательных чисел: " + n);
+    }
+
+    public static void randomNumsEndsOnThree(){
+        Random rand = new Random();
+        List random_nums = new ArrayList<>();
+        for(int i = 0; i <= 20; i++){
+            int max_num = 1001;
+            int random_num = rand.nextInt(max_num);
+            random_nums.add(random_num);
+        }
+        List<Integer> finalResult = new ArrayList<>();
+        random_nums.stream().map(num -> {
+            String[] splitNum = num.toString().trim().split("");
+            if(Integer.parseInt(splitNum[splitNum.length - 1]) == 3){
+                finalResult.add((Integer) num);
+            }
+            return finalResult;
+        }).toList();
+        System.out.println(finalResult);
     }
 
 }
