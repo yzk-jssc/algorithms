@@ -1,8 +1,10 @@
+package java.Solutions;
+
 import java.util.*;
 import java.util.regex.Pattern;
 
 
-public class CheckSolutions {
+public class tasksArray {
 
     public static void main(String[] args){
 //        positiveAndNegativeCount();
