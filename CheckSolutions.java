@@ -1,11 +1,13 @@
 import java.util.*;
+import java.util.regex.Pattern;
 
 
 public class CheckSolutions {
 
     public static void main(String[] args){
 //        positiveAndNegativeCount();
-        randomNumsEndsOnThree();
+//        randomNumsEndsOnThree();
+        wordLengthFromInput();
     }
 
     public static void positiveAndNegativeCount() {
@@ -33,15 +35,31 @@ public class CheckSolutions {
             int random_num = rand.nextInt(max_num);
             random_nums.add(random_num);
         }
-        List<Integer> finalResult = new ArrayList<>();
+        List<Integer> final_result = new ArrayList<>();
         random_nums.stream().map(num -> {
             String[] splitNum = num.toString().trim().split("");
             if(Integer.parseInt(splitNum[splitNum.length - 1]) == 3){
-                finalResult.add((Integer) num);
+                final_result.add((Integer) num);
             }
-            return finalResult;
+            return final_result;
         }).toList();
-        System.out.println(finalResult);
+        System.out.println(final_result);
+    }
+
+    public static void wordLengthFromInput() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Введите фразу:");
+        String[] words_array = scanner.nextLine().split("[\\s\\,\\.\\-]+");
+        System.out.println("Введите длину слова:");
+        int desired_length = scanner.nextInt();
+        scanner.close();
+        int word_counter = 0;
+        for (int i = 0; i < words_array.length; i++){
+            if(words_array[i].length() == desired_length){
+                word_counter++;
+            }
+        }
+        System.out.println(word_counter);
     }
 
 }
