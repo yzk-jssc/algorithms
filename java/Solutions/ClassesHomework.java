@@ -1,8 +1,9 @@
+package java.Solutions;
+
 import java.util.*;
-import java.util.stream.Stream;
 
 
-public class CheckSolutions {
+public class ClassesHomework {
 
     public static void main(String[] args){
 
